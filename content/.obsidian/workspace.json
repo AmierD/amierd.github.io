@@ -391,12 +391,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "what is a digital garden?.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "what is a digital garden?"
             }
           }
         ],
@@ -570,9 +570,9 @@
   },
   "active": "f6a7fea352179d76",
   "lastOpenFiles": [
+    "index.md",
     "the journey of the impatient.md",
     "why I started a digital garden.md",
-    "index.md",
     "what is a digital garden?.md",
     "professional/career portfolio.md",
     "professional",

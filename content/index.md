@@ -1,7 +1,7 @@
 ---
 title: Welcome!
 created: 2026-09-11T21:35
-modified: 2026-09-13T10:21
+modified: 2026-09-13T11:06
 ---
 Hi, my name is Amier, I am a third-year[^1] student at Hampton University studying Computer Science with a focus in AI and Machine Learning.
 
