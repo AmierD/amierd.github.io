@@ -1,7 +1,7 @@
 ---
 title: Welcome!
 created: 2026-09-11T21:35
-modified: 2026-09-13T11:06
+modified: 2026-09-13T11:22
 ---
 Hi, my name is Amier, I am a third-year[^1] student at Hampton University studying Computer Science with a focus in AI and Machine Learning.
 
@@ -13,7 +13,7 @@ This is my [[what is a digital garden?|digital garden]] / [[professional/career 
 
 > [!TIP]
 > You can travel through the garden by clicking any of the links that you see on this page or any others.
-> Internal Links look like [[this]]
+> Internal Links look like [[index|this]]
 > External links look like [this](https://mieracle.com)
 
 The following is a small, curated list of entry points to get you started:

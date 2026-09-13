@@ -391,12 +391,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "what is a digital garden?.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "what is a digital garden?"
+              "title": "index"
             }
           }
         ],
@@ -570,10 +570,11 @@
   },
   "active": "f6a7fea352179d76",
   "lastOpenFiles": [
-    "index.md",
     "the journey of the impatient.md",
-    "why I started a digital garden.md",
+    "private/a mathematical representation of achieving goals.md",
+    "index.md",
     "what is a digital garden?.md",
+    "why I started a digital garden.md",
     "professional/career portfolio.md",
     "professional",
     "private/tenets of self-actualization.md",
@@ -593,7 +594,6 @@
     "private/application and research.md",
     "private/\"invalid\" forms of suffering.md",
     "private",
-    "private/a mathematical representation of achieving goals.md",
     "google.com.md",
     "private/bringing my brick.md",
     "templates/note template.md",
