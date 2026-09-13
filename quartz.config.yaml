@@ -285,6 +285,20 @@ plugins:
       position: left
       priority: 50
       condition: not-index
+      display: desktop-only
+  - source: "@quartz-community/recent-notes"
+    enabled: true
+    options:
+      title: Recently tended
+      limit: 5
+      showTags: false
+      hideTagPages: true
+      hideFolderPages: true
+    layout:
+      position: afterBody
+      priority: 50
+      condition: not-index
+      display: mobile-only
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
