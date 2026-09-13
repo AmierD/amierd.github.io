@@ -1,3 +1,99 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+:root { --hover-mix: black;}
+:root[saved-theme="dark"] { --hover-mix: white;}
+
+// a:hover { color: color-mix(in oklab, var(--secondary), var(--hover-mix) 10%); }
+
+// ---------------------------------------------------------------------------
+// Obsidian-style pills: pale tint background + saturated same-hue text.
+// Ratios verified with scripts/check-contrast.py - re-check after editing.
+// NOTE: deliberately does NOT touch .note-properties-tags a.tag-link, so the
+// frontmatter tags keep Quartz's default look and hover.
+// ---------------------------------------------------------------------------
+:root {
+  --pill-yellow-bg: #fff3cc;
+  --pill-yellow-text: #8b6a00; // 4.55:1
+  --pill-mint-bg: #ccfff3;
+  --pill-mint-text: #008060; // 4.50:1
+  --pill-coral-bg: #ffd7cc;
+  --pill-coral-text: #be2a00; // 4.50:1
+}
+:root[saved-theme="dark"] {
+  --pill-yellow-bg: #372e10;
+  --pill-yellow-text: #ffd85b; // 9.76:1
+  --pill-mint-bg: #10372e;
+  --pill-mint-text: #adffeb; // 11.37:1
+  --pill-coral-bg: #371910;
+  --pill-coral-text: #ff7e59; // 6.40:1
+}
+
+@mixin pill($bg, $fg) {
+  background-color: $bg;
+  color: $fg;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.35rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    color: $fg;
+    background-color: color-mix(in oklab, #{$bg}, var(--hover-mix) 4%);
+  }
+}
+
+h2.page-title a {
+  @include pill(var(--pill-yellow-bg), var(--pill-yellow-text));
+}
+
+a.nav-file-title {
+  &.is-active, &:hover { @include pill(var(--pill-mint-bg), var(--pill-mint-text)); }
+}
+
+// Breadcrumb trail (Home > Test 2)
+.breadcrumb-element a {
+  @include pill(var(--pill-yellow-bg), var(--pill-yellow-text));
+}
+
+// Body internal links. Overrides base.scss:96 `background-color: var(--highlight)`.
+// Excludes .tag-link (frontmatter tags keep Quartz defaults) and image links,
+// which base.scss deliberately renders with no chip.
+a.internal:not(.tag-link):not(:has(> img)) {
+  @include pill(var(--pill-yellow-bg), var(--pill-yellow-text));
+}
+
+// Outbound links get coral, so leaving the garden is visually marked.
+a.external {
+  @include pill(var(--pill-coral-bg), var(--pill-coral-text));
+
+  // the arrow icon is hardcoded to var(--dark) in base.scss:127
+  .external-icon > path {
+    fill: var(--pill-coral-text);
+  }
+}
+
+// Tags behave like explorer links: plain until hover, then a mint pill.
+// `a.tag-link` (0,1,1) outranks Quartz's own `.tag-link` (0,1,0), so this wins
+// regardless of stylesheet order. Keeps Quartz's `#` prefix and 0.85em size.
+a.tag-link {
+  background: transparent;
+  color: var(--darkgray);
+
+  &:hover {
+    background: var(--pill-mint-bg);
+    color: var(--pill-mint-text);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Per-folder layout. Quartz stamps the page slug on <body data-slug="...">,
+// and nested pages include their folder ("professional/career-portfolio"), so
+// `^=` ("starts with") targets a whole folder without any TypeScript.
+// Add or remove components from the list below to taste.
+// ---------------------------------------------------------------------------
+body[data-slug^="professional/"] {
+  .recent-notes {
+    display: none;
+  }
+}

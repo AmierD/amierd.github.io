@@ -1,10 +1,10 @@
 .DS_Store
-.gitignore
 node_modules
 public
 prof
 tsconfig.tsbuildinfo
-.obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
 .quartz-cache
 private/
 .replit
@@ -12,3 +12,8 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+
+# Obsidian plugin state. update-time-on-edit keeps a fileHashMap listing EVERY
+# note path it has seen - including everything under private/ - so committing it
+# would publish the titles of private notes in a public repo.
+content/.obsidian/plugins/*/data.json
