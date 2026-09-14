@@ -96,4 +96,27 @@ body[data-slug^="professional/"] {
   .recent-notes {
     display: none;
   }
+  
+  .graph {
+    display: none;
+  }
+
+  .backlinks {
+    display: none;
+  }
+
+  .note-properties {
+    display: none;
+  }
+
+  /*
+    the purpose of this is to remove the professional folder note from the
+    breadcrumb list. This removes potential confusion caused by clicking on
+    that link in the breadcrumb list without the digital garden context,
+    which is very possible given that /profession/career portfolio is an
+    entrypoint through portfolio.mieracle.com
+  */
+  .breadcrumb-element:nth-child(2) {
+    display: none;
+  }
 }
