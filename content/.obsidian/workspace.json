@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "professional/amazon guides.md",
+                "file": "professional/career portfolio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "amazon guides"
+              "title": "career portfolio"
             }
           }
         ]
@@ -191,6 +191,7 @@
   },
   "active": "2ac4a15d765a7136",
   "lastOpenFiles": [
+    "professional/amazon guides.md",
     "professional/not lang.md",
     "professional/hampton university.md",
     "professional/hampton teaching assistant.md",
@@ -198,7 +199,6 @@
     "professional/google android xr.md",
     "professional/galea digital.md",
     "professional/codepath tech exchange.md",
-    "professional/amazon guides.md",
     "professional/career portfolio.md",
     "the journey of the impatient.md",
     "why I started a digital garden.md",

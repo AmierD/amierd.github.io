@@ -93,31 +93,25 @@ a.tag-link {
 // Add or remove components from the list below to taste.
 // ---------------------------------------------------------------------------
 body[data-slug^="professional/"] {
-  .recent-notes {
-    display: none;
-  }
-  
-  .graph {
-    display: none;
-  }
-
-  .backlinks {
-    display: none;
-  }
-
+  .recent-notes,
+  .graph,
+  .backlinks,
   .note-properties {
     display: none;
   }
 
   /*
-    the purpose of this is to remove the professional folder note from the
-    breadcrumb list. This removes potential confusion caused by clicking on
-    that link in the breadcrumb list without the digital garden context,
-    which is very possible given that /profession/career portfolio is an
-    entrypoint through portfolio.mieracle.com
+    Hides the Home and professional crumbs, leaving only the current note.
+    /professional/career portfolio is an entrypoint through
+    portfolio.mieracle.com, so a visitor landing there has none of the digital
+    garden context that would make either crumb meaningful - following one
+    drops them somewhere unexplained.
   */
-  .breadcrumb-element:nth-child(2) {
-    display: none;
+  .breadcrumb-element {
+    &:first-child,
+    &:nth-child(2) {
+      display: none;
+    }
   }
 }
 
