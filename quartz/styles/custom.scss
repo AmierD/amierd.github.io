@@ -120,3 +120,42 @@ body[data-slug^="professional/"] {
     display: none;
   }
 }
+
+@layer mermaid-overrides {
+  // Layer is required: mermaid's rules are `#<svg-id> .x{...!important}`,
+  // which only a cascade layer outranks.
+  code.mermaid svg,
+  .mermaid-content svg { // 2nd selector: the clone in Quartz's pan/zoom modal
+    --mermaid-font-family: var(--bodyFont) !important;
+
+    text {
+      fill: var(--darkgray) !important;
+      font-family: var(--bodyFont) !important;
+      font-weight: 400 !important;
+    }
+
+    .section0, .section2 { fill: var(--lightgray) !important; opacity: 0.3 !important; }
+    .section1, .section3 { fill: transparent !important; opacity: 1 !important; }
+
+    .task0 { fill: var(--pill-mint-bg) !important;   stroke: var(--pill-mint-text) !important; }
+    .task1 { fill: var(--pill-yellow-bg) !important; stroke: var(--pill-yellow-text) !important; }
+    .task2 { fill: var(--pill-coral-bg) !important;  stroke: var(--pill-coral-text) !important; }
+    .task3 { fill: var(--lightgray) !important;      stroke: var(--gray) !important; }
+
+    // Must follow .task* - an active bar carries both classes.
+    .active0, .active1, .active2, .active3 {
+      fill: var(--pill-yellow-bg) !important;
+      stroke: var(--pill-yellow-text) !important;
+      stroke-width: 2px !important;
+    }
+
+    .today {
+      stroke: var(--gray) !important;
+      stroke-width: 2px !important;
+      stroke-dasharray: 4 4 !important;
+    }
+
+    .grid .tick { stroke: var(--lightgray) !important; }
+    .grid path  { stroke-width: 0 !important; }
+  }
+}
