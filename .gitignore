@@ -3,8 +3,6 @@ node_modules
 public
 prof
 tsconfig.tsbuildinfo
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
 .quartz-cache
 private/
 .replit
@@ -13,7 +11,15 @@ replit.nix
 quartz/cli/tui/dist/
 .turbo/
 
-# Obsidian plugin state. update-time-on-edit keeps a fileHashMap listing EVERY
-# note path it has seen - including everything under private/ - so committing it
+# Obsidian local UI state. Pane layout and active tab are machine-specific and
+# churn on every session, but the real problem is that workspace.json records
+# recently-opened files - including everything under private/ - so committing it
 # would publish the titles of private notes in a public repo.
+# NOTE: the path must be spelled from the repo root. A bare `.obsidian/...`
+# pattern anchors to the root and never matches the vault at content/.
+content/.obsidian/workspace.json
+content/.obsidian/workspace-mobile.json
+
+# Same leak via update-time-on-edit's fileHashMap, which lists every note path
+# it has ever seen.
 content/.obsidian/plugins/*/data.json
