@@ -2,14 +2,14 @@
 tags:
 draft: false
 created: 2026-09-12T21:10
-modified: 2026-09-17T13:06
+modified: 2026-09-17T13:11
 ---
 # At a glance
 ```mermaid
 gantt
     dateFormat YYYY-MM
     axisFormat %b %Y
-    tickInterval 6month
+    tickInterval 12month
 
     section Education
     Hampton University · BS in CS (AI/ML)  :edu1, 2024-08, 2028-05
