@@ -2,9 +2,11 @@
 tags:
 draft: false
 created: 2026-09-12T21:10
-modified: 2026-09-17T13:11
+modified: 2026-09-17T13:24
 ---
-# At a glance
+Hi, my name is Amier, I am a third-year[^1] student at Hampton University studying Computer Science with a focus in AI and Machine Learning.
+
+# Career at a Glance:
 ```mermaid
 gantt
     dateFormat YYYY-MM
@@ -103,3 +105,6 @@ Oct 2025 — May 2026
 Remote mentorship
 
 Year-long one-on-one mentorship developing career readiness, with networking events alongside CS professionals at Amazon.
+# Contact:
+amierLdavis@gmail.com
+740-400-1993
