@@ -128,6 +128,15 @@ body[data-slug^="professional/"] {
       font-weight: 400 !important;
     }
 
+    // Gantt section labels (Education, Work Experience, ...). Mermaid puts the
+    // class on a <text> whose glyphs live in child <tspan>s, and font-weight
+    // inherits, so setting it here is enough. Must follow the bare `text` rule
+    // above and out-specify it - (0,1,1) beats (0,0,1), and !important on both
+    // means specificity is what decides.
+    text.sectionTitle {
+      font-weight: 700 !important;
+    }
+
     .section0, .section2 { fill: var(--lightgray) !important; opacity: 0.3 !important; }
     .section1, .section3 { fill: transparent !important; opacity: 1 !important; }
 
