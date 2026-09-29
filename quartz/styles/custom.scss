@@ -8,8 +8,6 @@
 // ---------------------------------------------------------------------------
 // Obsidian-style pills: pale tint background + saturated same-hue text.
 // Ratios verified with scripts/check-contrast.py - re-check after editing.
-// NOTE: deliberately does NOT touch .note-properties-tags a.tag-link, so the
-// frontmatter tags keep Quartz's default look and hover.
 // ---------------------------------------------------------------------------
 :root {
   --pill-yellow-bg: #fff3cc;
@@ -57,10 +55,18 @@ a.nav-file-title {
 }
 
 // Body internal links. Overrides base.scss:96 `background-color: var(--highlight)`.
-// Excludes .tag-link (frontmatter tags keep Quartz defaults) and image links,
+// Excludes .tag-link (styled separately below) and image links,
 // which base.scss deliberately renders with no chip.
 a.internal:not(.tag-link):not(:has(> img)) {
   @include pill(var(--pill-yellow-bg), var(--pill-yellow-text));
+
+  // Links to pages not in the build (missing or draft: true). crawl-links adds
+  // `.broken` when disableBrokenWikilinks is on. Unclickable so they can't 404.
+  &.broken {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+  }
 }
 
 // Outbound links get coral, so leaving the garden is visually marked.
