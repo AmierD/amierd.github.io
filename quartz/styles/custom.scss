@@ -73,16 +73,15 @@ a.external {
   }
 }
 
-// Tags behave like explorer links: plain until hover, then a mint pill.
+// Tags are always-on mint pills (jzhao.xyz-style chip, in our pill shape).
 // `a.tag-link` (0,1,1) outranks Quartz's own `.tag-link` (0,1,0), so this wins
 // regardless of stylesheet order. Keeps Quartz's `#` prefix and 0.85em size.
 a.tag-link {
-  background: transparent;
-  color: var(--darkgray);
+  @include pill(var(--pill-mint-bg), var(--pill-mint-text));
 
-  &:hover {
-    background: var(--pill-mint-bg);
-    color: var(--pill-mint-text);
+  // coral in dark mode
+  :root[saved-theme="dark"] & {
+    @include pill(var(--pill-coral-bg), var(--pill-coral-text));
   }
 }
 
