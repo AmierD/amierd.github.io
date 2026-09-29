@@ -55,6 +55,11 @@ configuration:
         highlight: rgba(255, 216, 91, 0.16) # soft yellow band
         textHighlight: "#ffd85b55"
 plugins:
+  # local plugin: ||text|| -> spoiler span (see plugins/spoiler-syntax)
+  # order 25: its code-block pass must run after syntax-highlighting (20)
+  - source: "./plugins/spoiler-syntax"
+    enabled: true
+    order: 25
   - source: "@quartz-community/created-modified-date"
     enabled: true
     options:

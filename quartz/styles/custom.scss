@@ -100,6 +100,68 @@ a.tag-link {
   }
 }
 
+// Browsers render a tab as 8 spaces by default; match Obsidian's 4.
+pre {
+  tab-size: 4;
+}
+
+// ---------------------------------------------------------------------------
+// Discord-style spoilers: a solid gray pill until clicked (or tabbed to).
+//   <span class="spoiler" tabindex="0">the twist</span>
+// Reveal is :focus, so it re-hides when you click elsewhere on the page.
+// user-select: none stops select-all from revealing the text while hidden.
+// ---------------------------------------------------------------------------
+span.spoiler {
+  background-color: var(--gray);
+  color: transparent;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.35rem;
+  box-decoration-break: clone; // keep pill ends when it wraps lines
+  -webkit-box-decoration-break: clone;
+  user-select: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  // while hidden, hide nested formatting too (inline code has its own bg and border)
+  &:not(:focus) * {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--gray), var(--hover-mix) 10%);
+  }
+
+  &:focus {
+    background-color: var(--lightgray);
+    color: var(--darkgray);
+    user-select: auto;
+    cursor: text;
+    outline: none;
+  }
+}
+
+// Spoilers inside highlighted code blocks (comments and strings only; see
+// plugins/spoiler-syntax). Quartz colors every token span with
+// `code[data-theme*=" "] span { color: var(--shiki-*) }` at up to (0,2,2), so
+// `:root` adds the weight to win. No padding keeps monospace columns aligned,
+// and the revealed text takes its token's syntax color with no pill behind it.
+:root code span.spoiler {
+  padding: 0;
+
+  &:not(:focus) {
+    color: transparent;
+  }
+
+  &:focus {
+    color: inherit;
+    background-color: transparent;
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Per-folder layout. Quartz stamps the page slug on <body data-slug="...">,
 // and nested pages include their folder ("professional/career-portfolio"), so
