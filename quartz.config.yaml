@@ -96,7 +96,7 @@ plugins:
     order: 50
     layout:
       position: right
-      priority: 30
+      priority: 1
   - source: "@quartz-community/crawl-links"
     enabled: true
     options:
@@ -201,9 +201,9 @@ plugins:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
-      position: right
+      position: afterBody
       priority: 10
   - source: "@quartz-community/search"
     enabled: true
@@ -230,7 +230,7 @@ plugins:
       priority: 20
       condition: not-index
   - source: "@quartz-community/tag-list"
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 30
@@ -320,7 +320,7 @@ plugins:
         - tags
         - aliases
       excludedProperties: []
-      hidePropertiesView: false
+      hidePropertiesView: true
       delimiters: ---
       language: yaml
     order: 5
