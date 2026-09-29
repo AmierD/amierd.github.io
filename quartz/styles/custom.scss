@@ -71,6 +71,15 @@ a.external {
   .external-icon > path {
     fill: var(--pill-coral-text);
   }
+
+  // mint in dark mode (swapped with tags, which go coral)
+  :root[saved-theme="dark"] & {
+    @include pill(var(--pill-mint-bg), var(--pill-mint-text));
+
+    .external-icon > path {
+      fill: var(--pill-mint-text);
+    }
+  }
 }
 
 // Tags are always-on mint pills (jzhao.xyz-style chip, in our pill shape).
